@@ -147,20 +147,25 @@ if($_POST)
 	</b>
 </nav>
 <main>
-	<h2>Your Order</h2>
+
 
 	
 <div id="receipt">
-	<p><?php echo "<b>First Name:</b> ".$fname;?></p>
-	<p><?php echo "<b>Last Name:</b> ".$lname;?></p>
-	<p><?php echo "<b>Address:</b> ".$shipStreetAddr;?></p>
-	<p><?php echo "<b>City:</b> ".$shipCity;?></p>
-	<p><?php echo "<b>State:</b> ".$shipState;?></p>
-	<p><?php echo "<b>Zip:</b> ".$shipZip;?></p>
-	<p><?php echo "<b>Color:</b> ".$color;?></p>
-	<p><?php echo "<b>Size:</b> ".$size;?></p>
-	<p><?php echo "<b>Your credit card will be billed :</b>$".$cost;?></p>
-	<p><?php echo "<b>Your order number is :</b> ".$orderID;?></p>
+	<fieldset> <h2>Your Order</h2>
+	<p>
+	<?php echo "<b>Your order number is :</b> ".$orderID;?>
+	<?php echo "<br>	<b>Your order will be shipped to:</b> <br>
+		".$fname. " " .$lname."<br>
+		".$shipStreetAddr. "<br>
+		".$shipAptNo. "<br>
+		".$shipCity. "<br>
+		".$shipState. "<br>
+		".$shipZip. "<br>";?>
+	<?php echo "<b>Color:</b> ".$color;?><br>
+	<?php echo "<b>Size:</b> ".$size;?><br>
+	<?php echo "<b>Your credit card will be billed: </b>$".$cost;?><br>
+	<?php echo "If you have any questions about your order, please contact us via email at: <a type='email' href='mailto:robotpotatoinc@gmail.com'>robotpotatoinc@gmail.com</a>";?>
+	</p></fieldset>
 </div>
 </body>
 </html>
