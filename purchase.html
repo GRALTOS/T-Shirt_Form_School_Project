@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>LFC Jerseys Store</title>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="lfc.css" >
+<script type="text/javascript" src="shirtorder.js"></script>
+	</head>
+<body>
+<header>
+	<h1>Order Online</h1>
+</header>
+<nav>
+	<b>
+		<a href="index.html">Home</a> 
+		<a href="purchase.html">Store</a>
+		<a href="contact.html">Contact</a>
+	</b>
+</nav>
+<main>
+	<h2>Select from our online store</h2>
+	<p>Please fill out the form below to complete your order</p>
+<form id="jerseyorder" onsubmit="return validateContactForm()" method="post" action="shirt.php"}>
+			<fieldset>
+			<legend>Order</legend>
+				<table summary="LFC Jersey Order form">
+					<tr>
+						<td>Quantity</td>
+						<td><select name="quantity" id="quantity" onchange="populateTotal()" autofocus>
+							<option></option>
+							<option>1</option>
+							<option>2</option>
+							<option>3</option>
+							<option>4</option>
+							<option>5</option>
+						</select></td>
+					</tr>
+					<tr>
+						<td>Color:</td>
+						<td>
+							<select name="ktype">
+								<option></option>
+								<option>Red</option>
+								<option>Green</option>
+								<option>Blue</option>
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<td>Size:</td>
+						<td>
+							<select name="size">
+								<option></option>
+								<option>Small</option>
+								<option>Medium</option>
+								<option>Large</option>
+								<option>X-Large</option>
+								<option>XX-Large</option>
+							</select>
+						</td>
+					</tr>
+			</table>
+		</fieldset>
+		<fieldset>
+			<legend> Your Total</legend>
+				<table summary="bill_cost">
+					<tr>
+						<td><label for="Total_in_dollars" id="TotalGoesHere"></label></td>
+					</tr>
+				</table>
+		</fieldset>
+		<fieldset>
+			<legend>Shipping Information</legend>
+				<table summary="Shipping info">
+					<tr>
+						<td><label for="shipfirstname">First Name:</label></td>
+						<td><input id="shipfirstname" type="text" name="shipfirstname" size="30" /></td>
+					</tr>
+					<tr>
+						<td><label for="shiplastname">Last Name:</label></td>
+						<td><input id="shiplastname" type="text" name="shiplastname" size="30" /></td>
+					</tr>
+					<tr>
+						<td><label for="email">E-mail Address:</label></td>
+						<td><input id="email" input type="email" name="email" required placeholder="Enter a valid email address" size="30" /></td>
+					</tr>
+					<tr>
+						<td><label for="phone">Phone Number:</label></td>
+						<td><input id="phone" type="tel" name="phone" size="30" </td>
+					</tr>
+					<tr>
+						<td><label for="shipaddress">Street Address:</label></td>
+						<td><input id="shipaddress" type="text" name="shipaddress" size="30" /></td>
+					</tr>
+					<tr>
+						<td><label for="shipAptUnit">Apt/Unit Number:</label></td>
+						<td><input id="shipAptUnit" type="text" name="shipAptUnit" size="30" /></td>
+					</tr>
+					<tr>
+						<td><label for="shipcity">City:</label></td>
+						<td><input id="shipcity" type="text" name="shipcity" size="30" /></td>
+					</tr>
+					<tr>
+						<td>State:</td>
+						<td><select name="shipaddr_state" id="shipaddr_state">
+							<option></option>
+							<option>AL</option>
+							<option>AK</option>
+							<option>AZ</option>
+							<option>AR</option>
+							<option>CA</option>
+							<option>CO</option>
+							<option>CT</option>
+							<option>DE</option>
+							<option>FL</option>
+							<option>GA</option>
+							<option>HI</option>
+							<option>ID</option>
+							<option>IL</option>
+							<option>IN</option>
+							<option>IA</option>
+							<option>KS</option>
+							<option>KY</option>
+							<option>LA</option>
+							<option>ME</option>
+							<option>MD</option>
+							<option>MA</option>
+							<option>MI</option>
+							<option>MN</option>
+							<option>MS</option>
+							<option>MO</option>
+							<option>MT</option>
+							<option>NE</option>
+							<option>NV</option>
+							<option>NH</option>
+							<option>NJ</option>
+							<option>NM</option>
+							<option>NY</option>
+							<option>NC</option>
+							<option>ND</option>
+							<option>OH</option>
+							<option>OK</option>
+							<option>OR</option>
+							<option>PA</option>
+							<option>RI</option>
+							<option>SC</option>
+							<option>SD</option>
+							<option>TN</option>
+							<option>TX</option>
+							<option>UT</option>
+							<option>VT</option>
+							<option>VA</option>
+							<option>WA</option>
+							<option>WV</option>
+							<option>WI</option>
+							<option>WY</option>
+					</select></td>
+					</tr>
+					<tr>
+						<td><label for="shipaddr_zip">ZIP Code:</label></td>
+						<td><input id="shipaddr_zip" type="text" name="shipaddr_zip" size="7" /></td>
+					</tr>
+				</table>
+		</fieldset>
+		<fieldset id="billingtable"> 
+			<legend>Billing Information</legend>
+				<table summary="BillingInfo" id="billingtable">
+					<tr>
+						<td>Credit Card Type:</td>
+						<td>
+							<select name="cc_type">
+								<option></option>
+								<option>Visa</option>
+								<option>MasterCard</option>
+								<option>American Express</option>
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<td><label for="cc_num">Credit Card Number:</label></td>
+						<td><input id="cc_num" type="text" name="cc_num" size="25" /></td>
+					</tr>
+					<tr>
+						<td><label for="cc_spec_code">Special Code:</label></td>
+						<td><input id="cc_spec_code" type="text" name="cc_spec_code" size="7" /></td>
+					</tr>
+					<tr>
+						<td><label for="cc_name">Name on Card:</label></td>
+						<td><input id="cc_name" type="text" name="cc_name" size="20" /></td>
+					</tr> 
+					<tr>
+						<td>Expiration Month</td>
+						<td><select name="cc_exp_month">
+							<option></option>
+							<option>1</option>
+							<option>2</option>
+							<option>3</option>
+							<option>4</option>
+							<option>5</option>
+							<option>6</option>
+							<option>7</option>
+							<option>8</option>
+							<option>9</option>
+							<option>10</option>
+							<option>11</option>
+							<option>12</option>
+					</select></td>
+					</tr>
+					<tr>
+						<td>Expiration Year</td>
+						<td><select name="cc_exp_year">
+							<option></option>
+							<option>2016</option>
+							<option>2017</option>
+							<option>2018</option>
+							<option>2019</option>
+							<option>2020</option>
+							<option>2021</option>
+					</select></td>
+					</tr>
+					<tr>
+					<form action""> 
+						<td><label for="Address_check?">Are the shipping address and billing address the same? :</label></td>
+						<td><input type="checkbox" name="SomeName" id="SomeName" onclick="if( this.checked ) { fillForm(); } else { clearForm(); }" value="1" /></td>
+					</form>
+				</tr>
+			</table>
+		</fieldset>
+		<fieldset id="billing_address">
+
+		<legend>Billing Address</legend>
+			<table summary="Billing Address?">
+				<tr>
+					<td><label for="bill_name">Name on Credit Card:</label></td>
+					<td><input id="bill_name" type="text" name="bill_name" size="30" /></td>
+				</tr>
+				<tr>
+					<td><label for="bill_address">Street Address:</label></td>
+					<td><input id="bill_address" type="text" name="bill_address" size="30" /></td>
+				</tr>
+				<tr>
+					<td><label for="bill_AptUnit">Apt/Unit Number:</label></td>
+					<td><input id="bill_AptUnit" type="text" name="bill_AptUnit" size="30" /></td>
+				</tr>
+				<tr>
+					<td><label for="bill_city">City:</label></td>
+					<td><input id="bill_city" type="text" name="bill_city" size="30" /></td>
+				</tr>
+				<tr>
+						<td>State:</td>
+						<td><select name="addr_state" id="addr_state">
+								<option></option>
+								<option>AL</option>
+								<option>AK</option>
+								<option>AZ</option>
+								<option>AR</option>
+								<option>CA</option>
+								<option>CO</option>
+								<option>CT</option>
+								<option>DE</option>
+								<option>FL</option>
+								<option>GA</option>
+								<option>HI</option>
+								<option>ID</option>
+								<option>IL</option>
+								<option>IN</option>
+								<option>IA</option>
+								<option>KS</option>
+								<option>KY</option>
+								<option>LA</option>
+								<option>ME</option>
+								<option>MD</option>
+								<option>MA</option>
+								<option>MI</option>
+								<option>MN</option>
+								<option>MS</option>
+								<option>MO</option>
+								<option>MT</option>
+								<option>NE</option>
+								<option>NV</option>
+								<option>NH</option>
+								<option>NJ</option>
+								<option>NM</option>
+								<option>NY</option>
+								<option>NC</option>
+								<option>ND</option>
+								<option>OH</option>
+								<option>OK</option>
+								<option>OR</option>
+								<option>PA</option>
+								<option>RI</option>
+								<option>SC</option>
+								<option>SD</option>
+								<option>TN</option>
+								<option>TX</option>
+								<option>UT</option>
+								<option>VT</option>
+								<option>VA</option>
+								<option>WA</option>
+								<option>WV</option>
+								<option>WI</option>
+								<option>WY</option>
+						</select></td>
+				</tr>
+				<tr>
+						<td><label for="bill_zip">ZIP Code:</label></td>
+						<td><input id="bill_zip" type="text" name="bill_zip" size="7" /></td>
+				</tr>
+			</table>
+		</fieldset>
+
+		<td><input type="submit" value="Submit" /></td>
+		<td><input align="right" type="reset" value="Reset Form Data" /></td>
+	</form>
+</main>
+<footer>
+<p><small>Copyright &copy; 2016 LFC-Jerseys. All Rights Reserved.</small></p>
+</footer>
+</body>
+</html>
